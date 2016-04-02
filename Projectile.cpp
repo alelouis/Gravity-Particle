@@ -71,15 +71,19 @@ void Projectile::updateTrail(int nbPoint){
 
 void Projectile::HandleCollision(){
     if (pos.x <= 0) {
+        opos.x *= -1;
         pos.x *= -1;
     }
     if (pos.x >= 1600) {
+        opos.x = 1600 + (1600 - opos.x);
         pos.x = 1600 + (1600 - pos.x);
     }
     if (pos.y <= 0) {
+        opos.y *= -1;
         pos.y *= -1;
     }
     if (pos.y >= 800) {
+        opos.y = 800 + (800 - opos.y);
         pos.y = 800 + (800 - pos.y);
     }
 }

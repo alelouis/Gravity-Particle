@@ -31,19 +31,6 @@ int main()
     float angle = 0;
     int frameCounter = 0;
     //end_VARIABLE_DECLARATION
-    
-    projs.push_front(new Projectile(960,400,962,402,0,0));
-    projs.push_front(new Projectile(950,400,952,402,0,0));
-    projs.push_front(new Projectile(940,400,942,402,0,0));
-    projs.push_front(new Projectile(930,400,932,402,0,0));
-    projs.push_front(new Projectile(920,400,922,402,0,0));
-    projs.push_front(new Projectile(910,400,912,402,0,0));
-    projs.push_front(new Projectile(900,400,902,402,0,0));
-    projs.push_front(new Projectile(890,400,892,402,0,0));
-    projs.push_front(new Projectile(880,400,882,402,0,0));
-    projs.push_front(new Projectile(870,400,872,402,0,0));
-    projs.push_front(new Projectile(860,400,862,402,0,0));
-    projs.push_front(new Projectile(850,400,852,402,0,0));
 
     
     //begin_PROCESS_LOOP
@@ -57,9 +44,9 @@ int main()
         {
             if (event.type == sf::Event::Closed) window.close();
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                if(projs.size()==100){
+                if(projs.size()==20){
                     projs.push_front(new Projectile(800,400,800-(position.x-800)/20,400-(position.y-400)/20,0,0));
-                    projs.resize(100);
+                    projs.resize(20);
                 }else{
                     projs.push_front(new Projectile(800,400,800-(position.x-800)/20,400-(position.y-400)/20,0,0));
                 }
@@ -69,10 +56,11 @@ int main()
         //end_EVENT_HANDLER
         
         //begin_UPDATE_LOOP
+        
         for(int i=0;i<projs.size();i++){
-            distCarre = (projs[i]->getX()-m_x)*(projs[i]->getX()-m_x)/1000.0+(projs[i]->getY()-m_y)*(projs[i]->getY()-m_y)/1000.0;
-            angle = atan2(projs[i]->getY() - m_y, projs[i]->getX() - m_x);
-            projs[i]->setAcc(-400*cos(angle)/distCarre, -400*sin(angle)/distCarre);
+            //distCarre = (projs[i]->getX()-m_x)*(projs[i]->getX()-m_x)/1000.0+(projs[i]->getY()-m_y)*(projs[i]->getY()-m_y)/1000.0;
+            //angle = atan2(projs[i]->getY() - m_y, projs[i]->getX() - m_x);
+            //projs[i]->setAcc(-400*cos(angle)/distCarre, -400*sin(angle)/distCarre);
             if(t>0.1){
                 projs[i]->update(dt);
                 projs[i]->HandleCollision();
