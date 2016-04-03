@@ -4,3 +4,4 @@ Done with SFML, dirty code just for test purposes :(
 
 Preview :
 ![alt tag](http://i.imgur.com/J9zbuOG.png)
+![alt tag](http://i.imgur.com/SpHMo36.png)
